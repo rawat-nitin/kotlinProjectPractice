@@ -1,11 +1,14 @@
-## Lecture 02
+## Lesson 01
+HTML and CSS overview
+
+## Lesson 02
 Kotlin Fundamentals I
 
-## Lecture 03a
+## Lesson 03a
 Kotlin Fundamentals II
 
-## Lecture 03b
-Java Server Pages
+## Lesson 03b
+Servlets, Java Server Pages, JSTL
 
-## Lecture 04a
+## Lesson 04a
 Kotlin Fundamentals III
