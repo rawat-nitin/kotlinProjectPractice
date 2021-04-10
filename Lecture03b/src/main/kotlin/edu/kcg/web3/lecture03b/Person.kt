@@ -1,4 +1,4 @@
-package edu.kcg.web3.lesson03b
+package edu.kcg.web3.lecture03b
 
 class Person {
 

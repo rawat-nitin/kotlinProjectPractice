@@ -31,8 +31,8 @@ compileTestKotlin {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.31")
-    compileOnly("javax.faces:javax.faces-api:2.3")
     compileOnly("javax.servlet:javax.servlet-api:4.0.1")
+    implementation("jstl:jstl:1.2")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
