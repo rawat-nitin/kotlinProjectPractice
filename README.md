@@ -1,14 +1,23 @@
-## Lesson 01
-HTML and CSS overview
+## Lecture 01
+[HTML and CSS overview](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture01)
 
-## Lesson 02
-Kotlin Fundamentals I
+## Lecture 02
+[Kotlin Fundamentals I](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture02)
 
-## Lesson 03a
-Kotlin Fundamentals II
+## Lecture 03a
+[Kotlin Fundamentals II](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture03a)
 
-## Lesson 03b
-Servlets, Java Server Pages, JSTL
+## Lecture 03b
+[Servlets, Java Server Pages, JSTL](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture03b)
 
-## Lesson 04a
-Kotlin Fundamentals III
+## Lecture 04a
+[Kotlin Fundamentals III](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture04a)
+
+## Lecture 05
+[Spring Boot](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture05)
+
+## Lecture 06
+[Spring](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture06)
+
+## Lecture 07
+[REST, GraphQL, JSON](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture07)
