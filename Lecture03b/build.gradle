@@ -7,6 +7,10 @@ plugins {
 group 'edu.kcg.web3'
 version '1.0-SNAPSHOT'
 
+war {
+    archiveFileName = "lecture03b.war"
+}
+
 repositories {
     mavenCentral()
 }
