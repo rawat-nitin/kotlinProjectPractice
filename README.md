@@ -13,6 +13,9 @@
 ## Lecture 04a
 [Kotlin Fundamentals III](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture04a)
 
+## Lecture 04b
+[MVC](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture04b)
+
 ## Lecture 05
 [Spring Boot](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture05)
 
