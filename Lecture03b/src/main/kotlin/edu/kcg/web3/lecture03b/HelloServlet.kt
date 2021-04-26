@@ -18,8 +18,8 @@ class HelloServlet : HttpServlet() {
         response.contentType = "text/html"
         response.characterEncoding = "utf-8"
 
-        val s = request.queryString
-        val e = request.parameterNames
+        val queryString = request.queryString
+        val parameterNames = request.parameterNames
 
         response.writer.use { writer ->
             writer.println("<html>")
@@ -29,9 +29,9 @@ class HelloServlet : HttpServlet() {
             writer.println("<body>")
             writer.println("<p>$message</p>")
             writer.println("<p>some useful text</p>")
-            writer.println("<p>$s</p>")
-            while (e.hasMoreElements()) {
-                val parameter = e.nextElement().toString()
+            writer.println("<p>$queryString</p>")
+            while (parameterNames.hasMoreElements()) {
+                val parameter = parameterNames.nextElement().toString()
                 val value = request.getParameter(parameter)
                 writer.println("<p>Parameter: $parameter\nValue: $value</p>")
             }

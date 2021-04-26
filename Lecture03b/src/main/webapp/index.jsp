@@ -9,6 +9,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
+<a href="index.jsp">Index</a><br>
 <a href="hello-servlet">Go to Hello page</a><br>
 <a href="other">Go to Other page</a><br>
 <a href="jstl.jsp">Go to page with JSTL tags</a><br>
