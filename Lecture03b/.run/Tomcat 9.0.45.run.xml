@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Tomcat 9.0.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.45" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-    <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/lecture03b/" />
+    <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/lecture03b/" />
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
       <artifact name="Gradle : edu.kcg.web3 : lecture03b.war">
@@ -11,6 +11,7 @@
     </deployment>
     <server-settings>
       <option name="BASE_DIRECTORY_NAME" value="b74b1c80-6447-4d6e-9858-09bcd0f58833" />
+      <option name="HTTP_PORT" value="8081" />
     </server-settings>
     <predefined_log_file enabled="true" id="Tomcat" />
     <predefined_log_file enabled="true" id="Tomcat Catalina" />

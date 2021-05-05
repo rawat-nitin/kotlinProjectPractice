@@ -5,13 +5,13 @@ import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-@WebServlet(name = "helloServlet", value = ["/hello-servlet"])
+@WebServlet(name = "helloServlet", value = ["/Campuses2"])
 class HelloServlet : HttpServlet() {
 
     private lateinit var message: String
 
     override fun init() {
-        message = "Hello World!"
+        message = "Assignment_1 - Part 2"
     }
 
     public override fun doGet(request: HttpServletRequest, response: HttpServletResponse) {
@@ -28,8 +28,13 @@ class HelloServlet : HttpServlet() {
             writer.println("</head>")
             writer.println("<body>")
             writer.println("<p>$message</p>")
-            writer.println("<p>some useful text</p>")
-            writer.println("<p>$queryString</p>")
+            writer.println("<h2>List of the Campuses of KCGI</h2>")
+            writer.println("<ul>")
+            writer.println("<li>Hyakuman-Ben Campus</li>")
+            writer.println("<li>Kyoto-Eki Mae Campus</li>")
+            writer.println("<li>Tokyo Campus</li>")
+            writer.println("<li>Sapporo Campus</li>")
+            writer.println("</ul>")
             while (parameterNames.hasMoreElements()) {
                 val parameter = parameterNames.nextElement().toString()
                 val value = request.getParameter(parameter)
