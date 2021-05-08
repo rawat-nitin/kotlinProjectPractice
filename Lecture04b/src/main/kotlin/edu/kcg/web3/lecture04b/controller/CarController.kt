@@ -8,9 +8,10 @@ import javax.mvc.annotation.Controller
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.PathParam
+import javax.ws.rs.QueryParam
 
 
-@Path("car/{id}")
+@Path("car")
 @Controller
 @Open
 class CarController {
@@ -19,8 +20,15 @@ class CarController {
     var models: Models? = null
 
     @GET
+    @Path("/{id}")
     fun getCar(@PathParam("id") id: Long?): String {
         models?.put("car", findCarById(id ?: 1))
         return "/car.jsp"
     }
+
+    @GET
+    fun getCar2(@QueryParam("id") id: Long?): String {
+        return getCar(id)
+    }
+
 }
