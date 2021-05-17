@@ -18,7 +18,7 @@ class DatabaseSimulator {
     }
 
     fun insert(person: Person): Int {
-        if (person.id == -1) {
+        if (person.id <= 0) {
             person.id = ++idCounter
             people.add(person)
         } else {
@@ -27,18 +27,25 @@ class DatabaseSimulator {
         return person.id
     }
 
-    fun update(person: Person) {
-        if (person.id == -1) {
-            insert(person)
-        } else {
-            people.indexOfFirst { it.id == person.id }.let {
-                people[it] = person
-            }
-        }
-    }
-
     fun delete(person: Person) {
         people.remove(person)
+    }
+
+    fun update(person: Person) {
+        if (person.id <= 0) {
+            insert(person)
+        } else {
+//            val personDB = getById(person.id)
+//            if (personDB != null) {
+//                personDB.age = person.age
+//                personDB.favouriteLanguage = person.favouriteLanguage
+//            }
+            people.indexOfFirst { it.id == person.id }.let { index ->
+                if (index >= 0) {
+                    people[index] = person
+                }
+            }
+        }
     }
 
 }
