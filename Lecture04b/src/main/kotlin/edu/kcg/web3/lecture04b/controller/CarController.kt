@@ -20,15 +20,22 @@ class CarController {
     var models: Models? = null
 
     @GET
-    @Path("/{id}")
-    fun getCar(@PathParam("id") id: Long?): String {
+    @Path("/{id}/{brand}")
+    fun getCar(
+        @PathParam("id") id: Long?,
+        @PathParam("brand") brand: String?
+    ): String {
+        println(brand)
         models?.put("car", findCarById(id ?: 1))
         return "/car.jsp"
     }
 
     @GET
-    fun getCar2(@QueryParam("id") id: Long?): String {
-        return getCar(id)
+    fun getCar2(
+        @QueryParam("id") id: Long?,
+        @QueryParam("brand") brand: String?
+    ): String {
+        return getCar(id, brand)
     }
 
 }
