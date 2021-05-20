@@ -7,6 +7,9 @@ fun findCarById(id: Long): Car {
     return getAllCars().firstOrNull { it.id == id } ?: Car()
 }
 
+/**
+ * Method for simulating database
+ */
 fun getAllCars(): MutableList<Car> {
     val cars = mutableListOf<Car>()
     cars.add(Car(1, "Toyota", "white", 2021, electric = true))

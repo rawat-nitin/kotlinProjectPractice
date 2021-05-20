@@ -1,0 +1,16 @@
+{{> header}}
+
+<p><a href="/">Go home</a></p>
+
+<h1>All people</h1>
+{{#people}}
+    <p>
+        {{name}}, {{age}}, {{favouriteLanguage}}<br>
+        <a href="/person/delete/{{id}}">Delete</a>
+        <a href="/person/update/{{id}}">Update</a>
+    </p>
+{{/people}}
+
+<p style="color:red">{{error}}</p>
+
+{{> footer}}

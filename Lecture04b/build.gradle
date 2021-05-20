@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.4.31'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
     id 'war'
     id "org.jetbrains.kotlin.plugin.allopen" version "1.4.32"
 }
@@ -40,16 +40,7 @@ compileTestKotlin {
 }
 
 dependencies {
-    implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.31')
-//    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
-//    implementation('org.thymeleaf:thymeleaf:3.0.12.RELEASE')
-//
-//    compileOnly group: 'javax.enterprise', name: 'cdi-api', version: '2.0'
-//    implementation group: 'org.jboss.weld.servlet', name: 'weld-servlet-shaded', version: '3.0.2.Final'
-//    compileOnly('javax.mvc:javax.mvc-api:1.0.0')
-//    implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0'
-//    implementation group: 'org.mvc-spec.ozark', name: 'ozark-core', version: '1.0.0-m03'
-//    implementation group: 'org.mvc-spec.ozark', name: 'ozark-jersey', version: '1.0.0-m03'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32'
     compile 'javax:javaee-api:7.0'
     implementation 'javax.enterprise:cdi-api:2.0'
     implementation 'javax.mvc:javax.mvc-api:1.0-pr'
@@ -61,8 +52,8 @@ dependencies {
     implementation 'org.jboss.resteasy:resteasy-cdi:3.5.1.Final'
     implementation 'org.jboss.weld.servlet:weld-servlet-shaded:3.0.2.Final'
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 }
 
 test {

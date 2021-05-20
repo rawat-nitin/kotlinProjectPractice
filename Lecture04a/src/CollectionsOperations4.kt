@@ -9,31 +9,35 @@ fun main() {
     cars.add(Car("Ford", "red", 2015, 82_111.5))
     cars.add(Car("Volkswagen", "red", 2001, 382_142.1))
     cars.add(Car("Volkswagen", "white", 2017, 14680.3, true))
-    cars.add(Car("Suzuki", "red", 2012, 132_999.4))
+    cars.add(Car("Suzuki", "Red", 2012, 132_999.4))
 
     // get all electric cars
     val electricCars = cars.filter { it.electric }
+    println("electric cars")
     println(electricCars)
 
     // get all new cars
     val newCars = cars.filter { it.odometer == 0.0 }
+    println("new cars")
     println(newCars)
 
     // get all white cars made after 2015 sorted by brand
-    val white2015Cars = cars
+    val white2016Cars = cars
             .filter { it.color == "red" && it.year > 2015 }
             .sortedBy { it.brand }
-    println(white2015Cars)
+    println("red cars made after 2015")
+    println(white2016Cars)
 
     // get the oldest white car
     val oldestWhiteCar = cars
             .sortedByDescending { it.year }
             .lastOrNull { it.color == "white" }
+    println("oldest white car")
     println(oldestWhiteCar)
 
     // get all brands sorted without duplicates
     val brandsWithoutDuplicates = cars
-            .map { it.brand }
+            .map { it.color.toLowerCase() }
             .distinct()
             .sorted()
     println(brandsWithoutDuplicates)
