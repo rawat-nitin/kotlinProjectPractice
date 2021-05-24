@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
-import kotlin.math.log
 
 
 @Controller
@@ -42,12 +42,24 @@ class HomeController {
     fun greeting(
         model: Model,
         @RequestParam(name = "name", required = false, defaultValue = "World") name: String?
-    ): String? {
+    ): String {
         logger.info("name parameter is $name")
-        // uncomment to solve the intentional 500 error
-//        model["title"] = "Greeting page"
+        model["title"] = "Greeting page"
         model.addAttribute("name", name)
         return "greeting"
+    }
+
+    @PostMapping("/405-test")
+    fun test405(model: Model): String {
+        model["title"] = "Greeting page"
+        return "index"
+    }
+
+    @GetMapping("/500-test")
+    fun test500(model: Model): String {
+        // uncomment to solve the intentional 500 error
+//        model["title"] = "Greeting page"
+        return "index"
     }
 
 }
