@@ -24,3 +24,15 @@
 
 ## Lecture 07
 [REST, GraphQL, JSON](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture07)
+
+## Lecture 08
+[Web services](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture08)
+
+## Lecture 09
+[Databases, ORM, Hibernate I](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture09)
+
+## Lecture 10
+[Databases, ORM, Hibernate II](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture10)
+
+## Lecture 11
+[JavaScript](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture11)
