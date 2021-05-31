@@ -4,8 +4,8 @@ plugins {
     id("org.springframework.boot") version "2.5.0"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     war
-    kotlin("jvm") version "1.5.0"
-    kotlin("plugin.spring") version "1.5.0"
+    kotlin("jvm") version "1.5.10"
+    kotlin("plugin.spring") version "1.5.10"
 }
 
 group = "edu.kcg.web3"
@@ -17,7 +17,7 @@ repositories {
 }
 
 val springBootVersion = "2.5.0"
-val kotlinVersion = "1.5.0"
+val kotlinVersion = "1.5.10"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
@@ -31,8 +31,8 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.3")
     implementation("org.bouncycastle:bcprov-jdk15on:1.68") // password hashing
 
-    implementation("com.graphql-java:graphql-java:11.0")
-    implementation("com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0")
+    implementation("com.graphql-java:graphql-java:16.2")
+    implementation("com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0")
     implementation("com.graphql-java-kickstart:graphiql-spring-boot-starter:11.1.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")

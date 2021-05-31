@@ -26,12 +26,6 @@ class GraphQLDataFetchers {
             }
         }
 
-    val booksAuthorDataFetcher
-        get() = DataFetcher { dataFetchingEnvironment: DataFetchingEnvironment ->
-            val book: Book = dataFetchingEnvironment.getSource()
-            book.author
-        }
-
     val authorDataFetcher
         get() = DataFetcher { dataFetchingEnvironment: DataFetchingEnvironment ->
             val authorId: String = dataFetchingEnvironment.getArgument("id")
@@ -46,12 +40,6 @@ class GraphQLDataFetchers {
             } else {
                 authors.filter { authorIds.contains(it.id.toString()) }
             }
-        }
-
-    val authorsBooksDataFetcher
-        get() = DataFetcher { dataFetchingEnvironment: DataFetchingEnvironment ->
-            val author: Author = dataFetchingEnvironment.getSource()
-            author.books
         }
 
     companion object {

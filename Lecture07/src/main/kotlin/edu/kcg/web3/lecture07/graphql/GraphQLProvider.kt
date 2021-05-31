@@ -52,8 +52,6 @@ class GraphQLProvider {
             .type(newTypeWiring("Query").dataFetcher("books", graphQLDataFetchers?.booksDataFetcher))
             .type(newTypeWiring("Query").dataFetcher("author", graphQLDataFetchers?.authorDataFetcher))
             .type(newTypeWiring("Query").dataFetcher("authors", graphQLDataFetchers?.authorsDataFetcher))
-            .type(newTypeWiring("Book").dataFetcher("author", graphQLDataFetchers?.booksAuthorDataFetcher))
-            .type(newTypeWiring("Author").dataFetcher("books", graphQLDataFetchers?.authorsBooksDataFetcher))
             .build()
     }
 }

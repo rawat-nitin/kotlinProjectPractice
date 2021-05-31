@@ -50,7 +50,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
             .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.GET, "/people/**").permitAll()
-            .antMatchers(HttpMethod.POST, "/people/**").permitAll()
+            .antMatchers(HttpMethod.POST, "/people/**").hasAnyRole("USER", "ADMIN")
             .antMatchers(HttpMethod.PUT, "/people/**").hasRole("ADMIN")
             .antMatchers(HttpMethod.DELETE, "/people/**").hasRole("ADMIN")
             .antMatchers("/graphql").permitAll()

@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/people")
 class PeopleController(@Autowired private val databaseSimulator: PeopleDatabaseSimulator) {
 
-    @GetMapping("/all")
+    @GetMapping
     fun getAll(): List<Person> {
         if (databaseSimulator.getAll().isEmpty()) {
             databaseSimulator.insert(Person("John", 35, "Java"))
         }
-        return databaseSimulator.getAll().sortedBy { it.age }
+        return databaseSimulator.getAll()
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     fun getOne(@PathVariable id: Int?): ResponseEntity<Person> {
         val person = databaseSimulator.getById(id ?: -1)
         return if (person != null) {
@@ -31,25 +31,25 @@ class PeopleController(@Autowired private val databaseSimulator: PeopleDatabaseS
         }
     }
 
-    @PostMapping(path = ["/new"], consumes = ["application/json"])
+    @PostMapping(consumes = ["application/json"])
     fun insertPerson(@RequestBody person: Person): HttpEntity<*> {
         databaseSimulator.insert(person)
         return ResponseEntity.EMPTY
     }
 
-    @PutMapping(path = ["/put"], consumes = ["application/json"])
+    @PutMapping(consumes = ["application/json"])
     fun updatePerson(@RequestBody person: Person): HttpEntity<*> {
         databaseSimulator.update(person)
         return ResponseEntity.EMPTY
     }
 
-    @DeleteMapping(path = ["/delete"], consumes = ["application/json"])
+    @DeleteMapping(consumes = ["application/json"])
     fun deletePerson(@RequestBody person: Person): HttpEntity<*> {
         databaseSimulator.delete(person)
         return ResponseEntity.EMPTY
     }
 
-    @DeleteMapping(path = ["/delete/{id}"])
+    @DeleteMapping("/{id}")
     fun deletePersonById(@PathVariable id: Int?): HttpEntity<*> {
         databaseSimulator.getById(id ?: -1)
             ?.let { databaseSimulator.delete(it) }
