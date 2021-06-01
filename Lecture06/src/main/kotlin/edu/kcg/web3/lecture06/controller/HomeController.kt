@@ -17,12 +17,19 @@ class HomeController {
 
     @RequestMapping("/")
     fun index(model: Model): String {
-        model["title"] = "Index page"
         logger.trace("TRACE message")
         logger.debug("DEBUG message")
         logger.info("INFO message")
         logger.warn("WARN message")
         logger.error("ERROR message")
+
+        try {
+            throw RuntimeException("test exception")
+        } catch (e: Exception) {
+            logger.error("Error when accessing index page", e)
+        }
+
+        model["title"] = "Index page"
         return "index"
     }
 
