@@ -20,7 +20,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     private val logger = LoggerFactory.getLogger(SecurityConfig::class.java)
 
     override fun configure(http: HttpSecurity) {
-        logger.info("Configuring security")
+        logger.info("Configuring Spring security")
         http.authorizeRequests().anyRequest().permitAll()
     }
 

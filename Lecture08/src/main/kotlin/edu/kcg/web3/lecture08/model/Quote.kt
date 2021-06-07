@@ -4,7 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+data class QuoteContainer(
+    var type: String,
+    var value: Quote,
+)
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class Quote(
-    var type: String? = null,
-    var value: Value? = null
+    var id: Long,
+    var quote: String
 )

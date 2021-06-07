@@ -2,12 +2,8 @@ package edu.kcg.web3.lecture08.controller
 
 import edu.kcg.web3.lecture08.model.Movie
 import edu.kcg.web3.lecture08.model.MovieSearchResult
-import edu.kcg.web3.lecture08.model.Person
-import edu.kcg.web3.lecture08.model.Quote
-import org.apache.tomcat.util.codec.binary.Base64
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.*
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
@@ -17,8 +13,6 @@ import org.springframework.web.client.RestTemplate
 
 @Controller
 class MovieController(@Autowired private val restTemplate: RestTemplate) {
-
-    private val logger = LoggerFactory.getLogger(MovieController::class.java)
 
     @GetMapping("/movies")
     fun getMovies(model: Model): String {
