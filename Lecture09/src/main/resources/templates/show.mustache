@@ -1,0 +1,18 @@
+{{> includes/header}}
+
+<p><a href="/">Go home</a></p>
+
+<h1>All people</h1>
+{{#people}}
+    <p>
+        {{email}}, {{age}}, {{deleted}}<br>
+        <a href="/person/delete/{{id}}">Delete</a>
+        <a href="/person/update/{{id}}">Update</a>
+    </p>
+{{/people}}
+
+<p>{{message}}</p>
+
+<a href="/person/show?showDeleted=false">Show only valid</a>
+
+{{> includes/footer}}
