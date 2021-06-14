@@ -45,10 +45,10 @@ class PeopleController(
     fun insertPost(
         model: Model, @RequestParam email: String?, @RequestParam password: String?, @RequestParam age: String?
     ): String {
-        model["title"] = "Inserting a person"
-
-        if (email.isNullOrBlank() || password.isNullOrBlank() || age.isNullOrBlank()) {
+        return if (email.isNullOrBlank() || password.isNullOrBlank() || age.isNullOrBlank()) {
             model["message"] = "Some parameters were empty or blank!"
+            model["title"] = "Inserting person"
+            "insert"
         } else {
             val person = Person().also {
                 it.email = email
@@ -57,15 +57,21 @@ class PeopleController(
             }
             personRepository.save(person)
             model["message"] = "Changes saved"
+            showAll(model, null)
         }
 
-        return showAll(model, null)
+    }
+
+    @GetMapping("/permanent-delete/{id}")
+    fun permanentDelete(model: Model, @PathVariable id: Long): String {
+        personRepository.deleteById(id)
+        model["title"] = "Deleted"
+        return "delete"
     }
 
     @GetMapping("/delete/{id}")
     fun delete(model: Model, @PathVariable id: Long): String {
-//        personRepository.deleteById(id)
-        personRepository.markDeleted(id)
+        personRepository.markAsDeleted(id)
         model["title"] = "Deleted"
         return "delete"
     }
@@ -74,12 +80,12 @@ class PeopleController(
     fun updateGet(model: Model, @PathVariable id: Long): String {
         model["title"] = "Updating person"
 
-        val person = personRepository.findById(id)
-        if (person.isEmpty) {
+        val personOptional = personRepository.findById(id)
+        if (personOptional.isEmpty) {
             model["person"] = Person()
             model["message"] = "Person not found"
         } else {
-            model["person"] = person.get()
+            model["person"] = personOptional.get()
             model["message"] = ""
         }
         return "update"
@@ -94,12 +100,14 @@ class PeopleController(
         @RequestParam age: String?
     ): String {
 
-        if (id == null || email.isNullOrBlank() || password.isNullOrBlank() || age.isNullOrBlank()) {
-            model["message"] = "Update failed. Some properties were empty"
+        if (id == null || email.isNullOrBlank() || age.isNullOrBlank()) {
+            model["message"] = "Update failed. Some properties were empty or blank!"
         } else {
             personRepository.findByIdOrNull(id)?.also {
                 it.email = email
-                it.passwordHash = passwordEncoder.encode(password)
+                if (password?.isNotBlank() == true) {
+                    it.passwordHash = passwordEncoder.encode(password)
+                }
                 it.age = age.toLongOrNull() ?: 0
                 personRepository.save(it)
                 model["message"] = "Changes saved"
