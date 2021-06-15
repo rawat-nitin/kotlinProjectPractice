@@ -1,0 +1,39 @@
+{{> includes/header}}
+
+<h1>Products</h1>
+
+<p><a href="/">Go home</a></p>
+
+<form action="/products/new" method="post">
+    <div>
+        <label>Name: <br><input type="text" name="name"/> </label>
+    </div>
+    <div>
+        <label>Price: <br><input type="number" name="price"/> </label>
+    </div>
+    <div style="margin-top: 8px;">
+        <input type="submit" value="Add"/>
+    </div>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+</form>
+
+<hr>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Orders</th>
+    </tr>
+    {{#products}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{price}} JPY</td>
+            <td><a href="/products/{{id}}/orders">Show orders</a></td>
+        </tr>
+    {{/products}}
+</table>
+
+{{> includes/footer}}

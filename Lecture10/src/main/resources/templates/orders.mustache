@@ -1,0 +1,32 @@
+{{> includes/header}}
+
+<h1>Products</h1>
+
+<p><a href="/">Go home</a></p>
+<p><a href="/orders/new">Create new random order</a></p>
+
+<hr>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Total price</th>
+        <th>Created</th>
+        <th>Customer</th>
+    </tr>
+    {{#orders}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{totalPrice}} JPY</td>
+            <td>{{created}}</td>
+            <td>{{customer.email}}</td>
+            <td>
+                {{#products}}
+                    {{name}}<br>
+                {{/products}}
+            </td>
+        </tr>
+    {{/orders}}
+</table>
+
+{{> includes/footer}}
