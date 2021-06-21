@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 
@@ -25,19 +26,19 @@ class ProductController(
         return "products"
     }
 
-    @RequestMapping("/new")
+    @PostMapping("/new")
     fun newProduct(model: Model, @RequestParam name: String, @RequestParam price: String): String {
-        Product().also {
-            it.name = name
-            it.price = price.toLongOrNull() ?: 0
-            productRepository.save(it)
+        Product().apply {
+            this.name = name
+            this.price = price.toLongOrNull() ?: 0
+            productRepository.save(this)
         }
         return showAllProducts(model)
     }
 
     @RequestMapping("/{id}/orders")
     fun productDetail(model: Model, @PathVariable id: String): String {
-        model["title"] = "Products page"
+        model["title"] = "Product detail"
         model["orders"] = productRepository.findByIdOrNull(id.toLongOrNull())?.shopOrders ?: emptySet<ShopOrder>()
         return "products-orders"
     }

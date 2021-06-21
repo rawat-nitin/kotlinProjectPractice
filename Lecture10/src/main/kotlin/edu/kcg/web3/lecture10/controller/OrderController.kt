@@ -32,18 +32,16 @@ class OrderController(
         val shopOrder = ShopOrder()
 
         val email = SecurityContextHolder.getContext().authentication.principal as String
-        val customer = customerRepository.findByEmail(email) ?: throw RuntimeException()
+        val customer = customerRepository.findByEmail(email) ?: throw RuntimeException() // only a quick solution
         shopOrder.customer = customer
 
         var totalPrice = 0L
         val products = productRepository.findAll()
-        products.randomOrNull()?.let {
-            shopOrder.products.add(it)
-            totalPrice += it.price
-        }
-        products.randomOrNull()?.let {
-            shopOrder.products.add(it)
-            totalPrice += it.price
+        repeat(2) {
+            products.randomOrNull()?.let {
+                shopOrder.products.add(it)
+                totalPrice += it.price
+            }
         }
         shopOrder.totalPrice = totalPrice
 

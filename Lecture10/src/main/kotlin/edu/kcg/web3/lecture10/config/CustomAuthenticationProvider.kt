@@ -24,7 +24,7 @@ class CustomAuthenticationProvider(
         val password = authentication.credentials.toString()
         val customer = customerRepository.findByEmail(email)
 
-        if (customer?.password?.isNotBlank() == true && passwordEncoder.matches(password, customer.password)) {
+        if (customer?.password?.isNotEmpty() == true && passwordEncoder.matches(password, customer.password)) {
             val authorities = mutableListOf<SimpleGrantedAuthority>()
             authorities.add(SimpleGrantedAuthority("ADMIN"))
             return UsernamePasswordAuthenticationToken(email, password, authorities)
