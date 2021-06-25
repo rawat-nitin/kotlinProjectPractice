@@ -41,7 +41,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     }
 
     override fun configure(http: HttpSecurity) {
-        logger.info("Configuring security")
+        logger.info("Configuring Spring security")
         http.logout() // configuring logout page
             .logoutUrl("/logout")
             .logoutSuccessUrl("/")
