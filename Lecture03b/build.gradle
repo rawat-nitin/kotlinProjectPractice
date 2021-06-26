@@ -1,11 +1,11 @@
 plugins {
-    id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
-    id 'war'
+    id "java"
+    id "org.jetbrains.kotlin.jvm" version "1.5.20"
+    id "war"
 }
 
-group 'edu.kcg.web3'
-version '1.0-SNAPSHOT'
+group "edu.kcg.web3"
+version "0.0.1"
 
 war {
     archiveFileName = "lecture03b.war"
@@ -16,7 +16,7 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.7.1'
+    junitVersion = "5.7.1"
 }
 
 sourceCompatibility = 1.8
@@ -34,7 +34,7 @@ compileTestKotlin {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.20")
     compileOnly("javax.servlet:javax.servlet-api:4.0.1")
     implementation("jstl:jstl:1.2")
 
