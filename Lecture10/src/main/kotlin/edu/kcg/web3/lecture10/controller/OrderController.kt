@@ -28,7 +28,7 @@ class OrderController(
     }
 
     @RequestMapping("/new")
-    fun newProduct(model: Model): String {
+    fun newOrder(model: Model): String {
         val shopOrder = ShopOrder()
 
         val email = SecurityContextHolder.getContext().authentication.principal as String
