@@ -1,6 +1,7 @@
 <h1>Users</h1>
 
 <table>
+    <thead>
     <tr>
         <th>ID</th>
         <th>Email</th>
@@ -8,13 +9,16 @@
         <th>Age</th>
         <th>Delete</th>
     </tr>
+    </thead>
+    <tbody>
     {{#users}}
         <tr>
             <td>{{id}}</td>
-            <td>{{email}} JPY</td>
+            <td>{{email}}</td>
             <td>{{name}}</td>
             <td>{{age}}</td>
             <td><a href="/users/delete/{{id}}">Delete</a></td>
         </tr>
     {{/users}}
+    </tbody>
 </table>
