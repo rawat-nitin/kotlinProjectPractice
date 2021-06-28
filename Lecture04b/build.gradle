@@ -1,12 +1,12 @@
 plugins {
-    id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
-    id 'war'
-    id "org.jetbrains.kotlin.plugin.allopen" version "1.4.32"
+    id "java"
+    id "org.jetbrains.kotlin.jvm" version "1.5.20"
+    id "war"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.5.20"
 }
 
-group 'edu.kcg.web3'
-version '1.0-SNAPSHOT'
+group "edu.kcg.web3"
+version "1.0"
 
 war {
     archiveFileName = "lecture04b.war"
@@ -17,7 +17,7 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.7.1'
+    junitVersion = "5.7.1"
 }
 
 allOpen {
@@ -40,17 +40,18 @@ compileTestKotlin {
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32'
-    compile 'javax:javaee-api:7.0'
-    implementation 'javax.enterprise:cdi-api:2.0'
-    implementation 'javax.mvc:javax.mvc-api:1.0-pr'
-    implementation 'org.mvc-spec.ozark:ozark-core:1.0.0-m03'
-    implementation 'org.mvc-spec.ozark:ozark-resteasy:1.0.0-m03'
-    implementation 'org.mvc-spec.ozark.ext:ozark-thymeleaf:1.0.0-m03'
-    implementation 'org.hibernate:hibernate-validator:5.4.2.Final'
-    implementation 'org.jboss.resteasy:resteasy-servlet-initializer:3.5.1.Final'
-    implementation 'org.jboss.resteasy:resteasy-cdi:3.5.1.Final'
-    implementation 'org.jboss.weld.servlet:weld-servlet-shaded:3.0.2.Final'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.20"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.20"
+    implementation "javax:javaee-api:7.0"
+    implementation "javax.enterprise:cdi-api:2.0"
+    implementation "javax.mvc:javax.mvc-api:1.0-pr"
+    implementation "org.mvc-spec.ozark:ozark-core:1.0.0-m03"
+    implementation "org.mvc-spec.ozark:ozark-resteasy:1.0.0-m03"
+    implementation "org.mvc-spec.ozark.ext:ozark-thymeleaf:1.0.0-m03"
+    implementation "org.hibernate:hibernate-validator:5.4.2.Final"
+    implementation "org.jboss.resteasy:resteasy-servlet-initializer:3.5.1.Final"
+    implementation "org.jboss.resteasy:resteasy-cdi:3.5.1.Final"
+    implementation "org.jboss.weld.servlet:weld-servlet-shaded:3.0.2.Final"
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
