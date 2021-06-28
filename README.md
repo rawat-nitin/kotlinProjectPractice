@@ -35,4 +35,10 @@
 [Databases, ORM, Hibernate II](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture10)
 
 ## Lecture 11
-[JavaScript](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture11)
+[Express.js](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture11)
+
+## Lecture 12
+[AJAX, Web Sockets](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture12)
+
+## Lecture 13
+[React.js, Next.js](https://github.com/milankostak/KCGI-Web3/tree/master/Lecture13)
