@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.5.0"
+    id("org.springframework.boot") version "2.5.1"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     war
-    kotlin("jvm") version "1.5.10"
-    kotlin("plugin.spring") version "1.5.10"
+    kotlin("jvm") version "1.5.20"
+    kotlin("plugin.spring") version "1.5.20"
 }
 
 group = "edu.kcg.web3"
@@ -16,8 +16,8 @@ repositories {
     mavenCentral()
 }
 
-val springBootVersion = "2.5.0"
-val kotlinVersion = "1.5.10"
+val springBootVersion = "2.5.1"
+val kotlinVersion = "1.5.20"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
