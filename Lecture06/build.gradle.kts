@@ -25,11 +25,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion")
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.3")
-    implementation("org.bouncycastle:bcprov-jdk15on:1.68") // password hashing
-
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.3")
+    implementation("org.bouncycastle:bcprov-jdk15on:1.68") // password hashing
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
 }
