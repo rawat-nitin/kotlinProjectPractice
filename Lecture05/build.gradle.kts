@@ -24,8 +24,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-mustache:$springBootVersion")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion")
 
-	implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+	implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
 }
