@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test AJAX</title>
-
+    <title>Text Ajax</title>
     <script type="text/javascript">
         const sendRequest = (path, callback) => {
             const xhr = new XMLHttpRequest();
@@ -16,7 +15,7 @@
                     if (xhr.status === OK) {
                         callback(xhr.responseText);
                     } else {
-                        console.log("Error: " + xhr.status);
+                        console.log("Error:", xhr.status);
                     }
                 }
             };
@@ -28,9 +27,9 @@
             fetch(path)
                 .then(response => response.json())
                 // .then(json => console.log(json))
-                .then(json => callback(json))
-                .then(callback)
-                .catch(error => console.log("Error: " + error));
+                .then(json => callback(JSON.stringify(json)))
+                // .then(callback)
+                .catch(error => console.log("Error:", error));
         };
 
         sendRequestNew("/ajax", (responseText) => {
@@ -41,6 +40,7 @@
             document.querySelector("#button").addEventListener("click", () => {
                 sendRequestNew("/ajax-random", (responseText) => {
                     document.querySelector("#result").innerHTML = responseText;
+
                     const div = document.createElement("div");
                     div.innerText = responseText;
                     document.body.append(div);
@@ -49,18 +49,17 @@
         });
 
         setInterval(() => {
-            sendRequestNew("/ajax-random", (responseText) => {
-                // document.querySelector("#result").innerHTML = responseText;
+            sendRequestNew("/ajax-random", responseText => {
                 const div = document.createElement("div");
                 div.innerText = responseText;
                 document.body.append(div);
             });
-        }, 200);
+        }, 1000);
     </script>
 </head>
 <body>
-<h1>test</h1>
-<button id="button">Send AJAX request</button>
-<div id="result">0</div>
+<h1>Test</h1>
+<button id="button">Send Ajax request</button>
+<div id="result"></div>
 </body>
 </html>

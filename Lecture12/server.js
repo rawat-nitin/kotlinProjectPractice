@@ -18,7 +18,7 @@ app.get("/ajax", (req, res) => {
     const user = {
         "email": "test@example.com",
         "name": "Satoshi Nakamoto",
-        "age": 35
+        "age": parseInt((Math.random() * 100).toFixed(0))
     };
     res.send(JSON.stringify(user));
 });
@@ -34,20 +34,20 @@ const wsServer = new ws.Server({
     port: 4000
 });
 
-let sockets = [];
+let wsClients = [];
 wsServer.on("connection", socket => {
-    sockets.push(socket);
+    wsClients.push(socket);
 
     // When you receive a message, send that message to every socket.
     socket.on("message", msg => {
-        console.log("Received: " + msg)
-        sockets.forEach(s => s.send(msg));
+        console.log("Received:", msg);
+        wsClients.forEach(client => client.send(msg));
     });
 
     // When a socket closes, or disconnects, remove it from the array.
     socket.on("close", () => {
-        sockets = sockets.filter(s => s !== socket);
+        wsClients = wsClients.filter(s => s !== socket);
     });
 });
 
-console.log("WS server started at http://localhost:4000");
+console.log("WS server started at ws://localhost:4000");
