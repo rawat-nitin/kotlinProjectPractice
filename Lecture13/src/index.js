@@ -2,22 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-function Square(props) {
-    return (
-        <button className="square" onClick={props.onClick}>
-            {props.value}
-        </button>
-    );
+class Square extends React.Component {
+    render() {
+        return (
+            <button className="square" onClick={() => this.props.onClick()}>
+                {this.props.value}
+            </button>
+        );
+    }
 }
 
 class Board extends React.Component {
-
     renderSquare(i) {
-        return (
-            <Square
-                value={this.props.squares[i]}
-                onClick={() => this.props.onClick(i)}/>
-        );
+        return <Square
+            value={this.props.squares[i]}
+            onClick={() => this.props.onClick(i)}
+        />;
     }
 
     render() {
@@ -44,7 +44,6 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -60,7 +59,7 @@ class Game extends React.Component {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[this.state.stepNumber];
         const squares = current.squares.slice();
-
+        // if (squares[i] !== null) {
         if (squares[i]) {
             // ignore clicking on full fields
             return;
@@ -69,7 +68,7 @@ class Game extends React.Component {
             // do not continue when one player has already won
             return;
         }
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        squares[i] = this.state.xIsNext ? "X" : "O";
         this.setState({
             history: history.concat([{
                 squares: squares,
@@ -77,6 +76,7 @@ class Game extends React.Component {
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext,
         });
+        // console.log(this.state.history);
     }
 
     jumpTo(step) {
@@ -89,24 +89,26 @@ class Game extends React.Component {
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
+
         const winner = calculateWinner(current.squares);
         let status;
         if (winner) {
-            status = 'Winner: ' + winner;
+            status = "Winner: " + winner;
         } else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
 
-        const moves = history.map((step, move) => {
-            const desc = move ?
-                'Go to move #' + move :
-                'Go to game start';
+        const moves = history.map((value, index) => {
+            const description = (index !== 0) ?
+                "Go to move #" + index :
+                "Go to game start";
             return (
-                <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                <li key={index}>
+                    <button onClick={() => this.jumpTo(index)}>{description}</button>
                 </li>
             );
         });
+        // console.log(moves);
 
         return (
             <div className="game">
@@ -133,7 +135,7 @@ ReactDOM.render(
 );
 
 function calculateWinner(squares) {
-    const lines = [
+    const winningLines = [
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8],
@@ -143,11 +145,18 @@ function calculateWinner(squares) {
         [0, 4, 8],
         [2, 4, 6],
     ];
-    for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
+    for (let i = 0; i < winningLines.length; i++) {
+        const [a, b, c] = winningLines[i];
+        // squares can contain: null, "X", "O"
+        // the goal is that the three squares at indices a,b,c have the same value unless it is null
+        if (squares[a]) {
+            if (squares[a] === squares[b] && squares[a] === squares[c]) {
+                return squares[a];
+            }
         }
+        // squares[a]
+        // squares[b]
+        // squares[c]
     }
-    return null;
+    return false;
 }
