@@ -1,11 +1,11 @@
-package edu.kcg.web3.spring_boot_demo
+package edu.kcg.web3.lecture08
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringBootDemoApplication
+class Lecture08Application
 
 fun main(args: Array<String>) {
-	runApplication<SpringBootDemoApplication>(*args)
+	runApplication<Lecture08Application>(*args)
 }

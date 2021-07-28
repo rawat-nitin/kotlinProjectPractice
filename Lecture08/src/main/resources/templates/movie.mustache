@@ -1,0 +1,32 @@
+{{> includes/header}}
+
+<h1>Movies page</h1>
+
+<form action="/movies" method="POST">
+    <div>
+        <label>Movie name: <input type="text" name="movie"></label>
+    </div>
+    <div>
+        <input type="submit" value="Search">
+    </div>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+</form>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>IMDB ID</th>
+        <th>Poster</th>
+    </tr>
+    {{#movie}}
+        <tr>
+            <td>{{Title}}</td>
+            <td>{{Year}}</td>
+            <td><a href="https://www.imdb.com/title/{{imdbID}}/">IMDB page</a></td>
+            <td><img src="{{Poster}}" alt="Poster for {{Title}}" height="150px"></td>
+        </tr>
+    {{/movie}}
+</table>
+
+{{> includes/footer}}
